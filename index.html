@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
- <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4YZHC1G9FN');
-    </script>
- 
+<head> 
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4YZHC1G9FN');
+</script>
+
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mong - Large Grid Word Puzzle vs Computer | Soosooland</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breeze Field- Word Search Solo Game | Soosooland</title>
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="Find hidden words in this puzzle game. Test your vocabulary and word search skills. Free online brain game.">
-<meta name="keywords" content="word search, hidden words,어휘력, 단어 찾기,brain game, puzzle game, vocabulary game">
+<meta name="description" content="Find hidden words in the large grid, solo word search game. Free online brain game.">
+<meta name="keywords" content="puzzle game, hidden words,  word search, word puzzle, word game, vocabulary game, brain puzzle, word finder">
 <meta name="author" content="Soosooland">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Mong - Large Grid Word Puzzle">
-<meta property="og:description" content="Big grid word search against computer. Test your vocabulary in this expanded puzzle challenge.">
+
+<meta property="og:title" content="Breeze Field - Word Search solo Game">
+<meta property="og:description" content="Find words hidden in the grid.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://soosooland.com/mong/">
+<meta property="og:url" content="https://soosooland.com/field/">
 <meta property="og:image" content="https://soosooland.com/images/worpuzz.jpeg">
 <meta property="og:site_name" content="Soosooland">
-<link rel="canonical" href="https://soosooland.com/mong/">
+<link rel="canonical" href="https://soosooland.com/field/">
+<link rel="alternate" hreflang="ko" href="https://soosooland.com/field/field_kor.html">
+<link rel="alternate" hreflang="en" href="https://soosooland.com/field/field_eng.html">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "Mong",
-  "description": "Large grid word puzzle game against computer",
-  "url": "https://soosooland.com/mong/",
+  "name": "Worpuzz breeze",
+  "description": "Word search puzzle game where players find hidden words in a more large grid",
+  "url": "https://soosooland.com/field/",
   "genre": ["Puzzle", "Word"],
   "gamePlatform": "Web browser",
   "playMode": "SinglePlayer",
   "inLanguage": ["en", "ko"]
 }
 </script>
+<link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script src="https://soosooland.com/js/protection.js"></script>
 <style>
  * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* 이거 특히 중요! */
-  }
- body {
+    box-sizing: border-box;
+ } 
+body {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FFF2EB; /* 전체 배경: 피치 크림톤 */
     margin: 0;
@@ -61,6 +65,16 @@ h1 {
 font-size: clamp(1.3rem, 3.7vw, 1.9rem);
 color: #FF9494; /* 포인트 핑크 */
 margin-bottom: 20px;
+}
+
+.redirect-message {
+background-color: #FF9494;
+color: white;
+padding: 15px;
+border-radius: 8px;
+margin: 20px auto;
+max-width: 600px;
+font-size: 1.1em;
 }
 
 .description {
@@ -136,16 +150,6 @@ cursor: pointer;
 background-color: #FF7373;
 }
 
-.redirect-message {
-background-color: #FF9494;
-color: white;
-padding: 15px;
-border-radius: 8px;
-margin: 20px auto;
-max-width: 600px;
-font-size: 1.1em;
-}
-
   .back-button {
         position: absolute;
         top: 20px;
@@ -170,24 +174,20 @@ font-size: 1.1em;
 <body>
   <button class="back-button" onclick="location.href='https://soosooland.com/'">
     Soosooland </button>
-  <h1>WORPUZZ MONG </h1>
-
+  <h1>BREEZE FIELD</h1>
   <div class="description">
-    컴퓨터와 교대로 격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
-    격자가 영어는 가로19*세로12이고, 한글은 가로17*세로10가 있는 큰 사이즈입니다.<br>
-    영어 게임은 3~16글자의 영어단어가 들어있습니다.<br> 
+    격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 워퍼즈 게임입니다.<br>
+    격자가 영어는 가로16*세로16이고,  한글은 가로14*세로14가  있는 큰 사이즈입니다.<br>
+    영어 게임은 3~14글자의 영어 단어가 들어있습니다. <br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
-    더 많은 단어를 찾는 것이 목표이며, 승패 없이 "게임 종료"로 마무리됩니다.<br><br>
     🍀 클로버를 열면 상하좌우 4칸이 함께 열리고 한 번 더 턴을 가집니다.<br>
-    🌼 데이지를 열면 주변 8칸이 모두 열리며 마찬가지로 추가 턴이 주어집니다.<br>
+     <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> 데이지를 열면 주변 8칸이 모두 열리며 마찬가지로 추가 턴이 주어집니다.<br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
-    This is a single-player Worpuzz game where you take turns with the computer to uncover hidden words in the grid.<br>
-    The grid is large-sized: 19×12 for English and 17×10 for Korean.<br>
-    The English game contains English words from 3 to 16 letters.<br>
-    Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
-    Your goal is to find more words than the computer. There is no winner or loser — the game ends with "Game Over."<br>
+    This is a single-player Breeze game where you take turns with the computer to uncover hidden words in the grid.<br>
+    The grid is large-sized: 16×16 for English and 14×14 for Korean.<br>
+    The English game contains words from 3 to 14 letters.<br>Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
     🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open, and you get an extra turn.<br>
-    🌼 If you find a daisy, all eight surrounding tiles will open, and you also get an extra turn.<br>
+     <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> If you find a daisy, all eight surrounding tiles will open, and you also get an extra turn.<br>
     Choose a word pool below to begin the game.</div>
 
   <div class="row-container">
@@ -204,7 +204,7 @@ font-size: 1.1em;
         <button onclick="startGame('e8', true)">Sound Symbolism</button>
         <button onclick="startGame('e9', true)">US States & Cities</button>
         <button onclick="startGame('e10', true)">US Landmarks</button>
-       </div>
+ </div>
     </div>
 <div class="column">
   <h2>KOREAN</h2>
@@ -217,19 +217,26 @@ font-size: 1.1em;
     <button onclick="startGame('k6', false)">기초 단어</button>
   </div>
 </div>
-
   </div>
-  <script>
-window.addEventListener('DOMContentLoaded', () => {
+   <script>      
+window.addEventListener('load', () => {
     const screenWidth = window.innerWidth;
     
-    // 화면이 760px 이하일 때 워퍼즈로 리다이렉트
-    if (screenWidth < 670 && !sessionStorage.getItem('fromMini')) {
-        redirectToWorpuzz();
+    if (screenWidth < 700 && !sessionStorage.getItem('fromMini')) {
+        redirectToZen();
     }
 });
 
-function redirectToWorpuzz() {
+// 뒤로가기 대응
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) { // 캐시에서 복원된 경우
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 700 && !sessionStorage.getItem('fromMini')) {
+            redirectToZen();
+        }
+    }
+});
+function redirectToZen() {
     const overlay = document.createElement('div');
     overlay.innerHTML = `
         <div style="
@@ -253,11 +260,11 @@ function redirectToWorpuzz() {
                     화면이 너무 작습니다
                 </div>
                 <div style="font-size: 16px; margin-bottom: 10px;">
-                    Screen width must be at least 760px
+                    Screen width must be at least 700px
                 </div>
                 <div style="font-size: 14px; opacity: 0.8; margin-bottom: 25px;">
-                    워퍼즈로 자동 이동합니다...<br>
-                    Redirecting to Worpuzz...
+                    브리즈 젠으로 자동 이동합니다...<br>
+                    Redirecting to Breeze Zen...
                 </div>
                 <div class="loading-dots" style="font-size: 30px; letter-spacing: 5px;">
                     ⚡⚡⚡
@@ -277,11 +284,12 @@ function redirectToWorpuzz() {
     document.body.appendChild(overlay);
     
     setTimeout(() => {
-        window.location.href = 'https://soosooland.com/worpuzz';
+        window.location.href = 'https://soosooland.com/zen';
     }, 1500);
 }
+
     function startGame(poolName, isEnglish) {
-      const page = isEnglish ? 'mong_eng.html' : 'mong_kor.html';
+      const page = isEnglish ? 'field_eng.html' : 'field_kor.html';
       location.href = `${page}?pool=${poolName}`;
     }
   </script>
