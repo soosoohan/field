@@ -60,6 +60,36 @@ body {
     text-align: center;
     color: #7A2E2E; /* 기본 텍스트: 부드러운 브라운 */
   }
+.language-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.9);
+        padding: 8px;
+        border-radius: 8px;
+        z-index: 100;
+    }
+
+    .language-button {
+        background: #2e8b8b;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Pretendard', sans-serif;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        transition: all 0.3s ease;
+    }
+
+    .language-button:hover {
+        background: #20b2aa;
+    }
+
+    .language-button.active {
+        background: #ff69b4;
+    }
 
 h1 {
 font-size: clamp(1.3rem, 3.7vw, 1.9rem);
@@ -169,26 +199,44 @@ background-color: #FF7373;
         background-color: #FF9494;
         color: white;
     }
+   .hidden {
+    display: none;
+}
+
 </style>
 </head>
-<body>
+<body onload="initLanguage()">
   <button class="back-button" onclick="location.href='https://soosooland.com/'">
     Soosooland </button>
-  <h1>BREEZE FIELD</h1>
+   <div class="language-toggle">
+                <button class="language-button active" onclick="toggleLanguage('ko')">한국어</button>
+                <button class="language-button" onclick="toggleLanguage('en')">English</button>
+            </div>
+
+
   <div class="description">
-    격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 워퍼즈 게임입니다.<br>
+     <div id="korean-description"> 
+  <h1>브리즈 필드</h1>
+ 격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 워퍼즈 게임입니다.<br>
     격자가 영어는 가로16*세로16이고,  한글은 가로14*세로14가  있는 더 큰 사이즈입니다.<br>
     영어 게임은 3~14글자의 영어 단어가 들어있습니다. <br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
     🍀 클로버를 열면 상하좌우 4칸이 함께 열리고 한 번 더 턴을 가집니다.<br>
      <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> 데이지를 열면 주변 8칸이 모두 열리며 마찬가지로 추가 턴이 주어집니다.<br>
-    아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
+    아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>        
+</div>
+<div id="english-description" class="hidden">
+  <h1>BREEZE FIELD</h1>
     This is a single-player Breeze game where you take turns with the computer to uncover hidden words in the extra large grid.<br>
     The grid is extra large-sized: 16×16 for English and 14×14 for Korean.<br>
     The English game contains words from 3 to 14 letters.<br>Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
     🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open, and you get an extra turn.<br>
      <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> If you find a daisy, all eight surrounding tiles will open, and you also get an extra turn.<br>
-    Choose a word pool below to begin the game.</div>
+    Choose a word pool below to begin the game.  
+ </div>
+
+     
+ </div>
 
   <div class="row-container">
     <div class="column">
@@ -287,7 +335,35 @@ function redirectToZen() {
         window.location.href = 'https://soosooland.com/zen';
     }, 1500);
 }
+function toggleLanguage(lang) {
+        const koreanDesc = document.getElementById('korean-description');
+        const englishDesc = document.getElementById('english-description');
+        const buttons = document.querySelectorAll('.language-button');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        if (lang === 'ko') {
+            koreanDesc.classList.remove('hidden');
+            englishDesc.classList.add('hidden');
+            buttons[0].classList.add('active');
+        } else {
+            koreanDesc.classList.add('hidden');
+            englishDesc.classList.remove('hidden');
+            buttons[1].classList.add('active');
+        }
 
+localStorage.setItem('soosoo-lang', lang); 
+
+    }
+function initLanguage() {
+  const saved = localStorage.getItem('soosoo-lang');
+  if (saved) {
+    toggleLanguage(saved); // 저장된 값 우선
+  } else {
+    const lang = navigator.language.startsWith('ko') ? 'ko' : 'en';
+    toggleLanguage(lang); // 브라우저 언어 감지
+  }
+}
     function startGame(poolName, isEnglish) {
       const page = isEnglish ? 'field_eng.html' : 'field_kor.html';
       location.href = `${page}?pool=${poolName}`;
