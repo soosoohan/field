@@ -74,7 +74,7 @@ We plan to develop games with more diverse topics and in various languages such 
 Explore more brain games and puzzles in **[Soosooland](https://soosooland.com)**    
 — a digital playground designed to improve memory, logic, and creativity while having fun!
 
-## 워퍼즈 몽 (worpuzz mong) :https://soosooland.com/mong/ 
+## 워퍼즈 브리즈 필드 (Worpuzz Breeze field) :https://soosooland.com/field/ 
 ---
 ## ⚠️ **Copyright Protection   
 
