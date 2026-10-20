@@ -352,7 +352,7 @@ margin-top: 30px;
     }
   }
 </style>
-
+<script src="end-screen.js"></script>
 </head>
 
 <body>
@@ -922,17 +922,17 @@ function checkGameEnd() {
   resultShown = true;
   const userWords = foundBy.user.length;
   const resultText = allFound
-  ? `You win! You found ${userWords} of ${totalWords} words.`
-  : `Game over! You found ${userWords} of ${totalWords} words.`;
+    ? `당신이 이겼습니다! 단어 ${totalWords}개 중에서 ${userWords}개를 찾았습니다.`
+    : `게임이 끝났습니다! 단어 ${totalWords}개 중에서 ${userWords}개를 찾았습니다.`;
 
   currentTurnEl.textContent = resultText;
 
   showEndOverlay({
-  lang: 'en',
-  result: allFound ? 'win' : 'lose',
-  scoreText: `${userWords} of ${totalWords} words found`,
-  onRestart: () => location.reload()
-});
+    lang: 'ko',
+    result: allFound ? 'win' : 'lose',
+    scoreText: `단어 ${totalWords}개 중 ${userWords}개 발견`,
+    onRestart: () => location.reload()
+  });
 }
 retryBtn.onclick = () => {
   location.reload();
