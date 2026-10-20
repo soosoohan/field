@@ -906,7 +906,7 @@ function checkWords() {
 }
 
 function checkGameEnd() {
-  if (resultShown) return;   // 중복 호출 방지
+  if (resultShown) return;
   const totalWords = Object.keys(wordMap).length;
   const allFound = foundWords.size >= totalWords && totalWords > 0;
   const failed = mistakes >= mistakeLimit;
